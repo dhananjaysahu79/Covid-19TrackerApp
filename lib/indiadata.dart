@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart'as http;
 import 'package:newsapp/indiadetail.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 class IndiaData extends StatefulWidget {
   IndiaData({Key key}) : super(key: key);
 
@@ -33,56 +34,63 @@ class _IndiaDataState extends State<IndiaData> {
     for(var v in decodedJson["tested"]){
       counter++;
     }
-    print(counter);
     total_tested=decodedJson["tested"][counter-1]["totalsamplestested"];
     return data;
   }
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 18, 21, 23),
     appBar: AppBar(
-      backgroundColor:Colors.cyan,
-      title:Text("India Stats")
+      elevation: 0,
+      backgroundColor:Color.fromARGB(255, 18, 21, 23),
+      title:AutoSizeText("INDIA STATS",
+       minFontSize: 18,
+        maxFontSize: 18,
+         textScaleFactor: 0.8,
+            style: TextStyle(
+              fontSize: 16,
+              letterSpacing: 1
+            ),
+            )
     ),
     body: Column(
       children: <Widget>[
          Card(  
+           color: Color.fromARGB(255, 29, 35, 41),
           child: Container(
              height: 35,
              child: Row(
                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                  children: <Widget>[
-              Container(
-                   width:122,
-                   child:Text("State",
+                Container(
+                    width:MediaQuery.of(context).size.width/3.2,
+                   child:AutoSizeText("State",
+                    minFontSize: 18,
+                      maxFontSize: 18,
+                      textScaleFactor: 0.8,
                    style: TextStyle(
-                     fontSize:20,
+                     fontSize:18,
                      fontWeight:FontWeight.bold
                     ),
                   )
                  ),
                   Container(
-                    color: Colors.cyan.withOpacity(0.4),
-                       width:65,
-                        child:Center(child: Text("Total",style: TextStyle(fontSize:16),))
+                        width:MediaQuery.of(context).size.width/3.5,
+                        child:Center(child: AutoSizeText("Total",maxLines:1,
+                         minFontSize: 18,
+                      maxFontSize: 18,
+                      textScaleFactor: 0.8,
+                        style: TextStyle(fontSize:16,color:Colors.cyan),))
                         ),
-                  Container(
-                    color: Colors.purple.withOpacity(0.3),
-                      width:60,
-                    child:Center(child: Text("Active",style: TextStyle(fontSize:16),))
-                    ),
-                     Container(
-                       color:Colors.green.withOpacity(0.4),
-                      width:60,
-                      child:Center(child: Text("Re-\ncovered",style: TextStyle(fontSize:16),))
-                     ),
                    Container(
-                     color: Colors.red.withOpacity(0.4),
-                      width:60,
-                       child:Center(child: Text("Deaths",style: TextStyle(fontSize:16),))
-                 ),
-                 Container(
-                      width:23,
-                 ),
+                      width:MediaQuery.of(context).size.width/5,
+                       child:Center(child: AutoSizeText("Deaths",maxLines:1,
+                        minFontSize: 18,
+                      maxFontSize: 18,
+                      textScaleFactor: 0.8,
+                       style: TextStyle(fontSize:16,color: Color.fromARGB(255, 194, 46, 65),),))
+                  ),
+                
                  ],
                ),
            ),
@@ -102,6 +110,8 @@ class _IndiaDataState extends State<IndiaData> {
                              builder:(BuildContext context){
                                return IndiaDetail(
                                  snapshot.data[index].state,
+                                 snapshot.data[index].total,
+                                 snapshot.data[index].active,
                                  snapshot.data[index].recovered,
                                  snapshot.data[index].death,
                                  snapshot.data[index].new_cases,
@@ -112,47 +122,47 @@ class _IndiaDataState extends State<IndiaData> {
                         }))},
                              child: Row(
                              children: <Widget>[
-                               Card(
-                                 child:Container(
-                                   height: 60,
-                                   width: MediaQuery.of(context).size.width/1.02,
-                                   child: Row(
-                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                     children: <Widget>[
-                                       Container(
-                                         width:120,
-                                         child:Text(snapshot.data[index].state,
-                                         style: TextStyle(
-                                           fontSize:20,
-                                           fontWeight:FontWeight.bold
-                                         ),
-                                         )
+                               Container(
+                                 height: 60,
+                                 width: MediaQuery.of(context).size.width/1.02,
+                                 child: Row(
+                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                   children: <Widget>[
+                                     Container(
+                                      width:MediaQuery.of(context).size.width/3.2,
+                                       child:AutoSizeText(snapshot.data[index].state,
+                                        minFontSize: 18,
+                                        maxFontSize: 18,
+                                        textScaleFactor: 0.8,
+                                       style: TextStyle(
+                                         fontSize:18,
+                                         fontWeight:FontWeight.bold
                                        ),
-                                        Container(
-                                         color:Colors.cyan.withOpacity(0.4) ,
-                                         width:65,
-                                         child:Center(child: Text(snapshot.data[index].total.toString(),style: TextStyle(fontSize:16),))
-                                       ),
-                                        Container(
-                                          color:Colors.purple.withOpacity(0.3),
-                                         width:60,
-                                         child:Center(child: Text(snapshot.data[index].active.toString(),style: TextStyle(fontSize:16),))
-                                       ),
-                                        Container(
-                                          color: Colors.green.withOpacity(0.4),
-                                         width:60,
-                                         child:Center(child: Text(snapshot.data[index].recovered.toString(),style: TextStyle(fontSize:16),))
-                                       ),
-                                        Container(
-                                          color: Colors.red.withOpacity(0.4),
-                                         width:60,
-                                         child:Center(child: Text(snapshot.data[index].death.toString(),style: TextStyle(fontSize:16),))
-                                       ),
-                                      Icon(Icons.arrow_right,size:20)
-                                     ],
-                                   ),
-                                   )
-                               )
+                                       )
+                                     ),
+                                      Container(
+                                     
+                                        width:MediaQuery.of(context).size.width/3.5,
+                                       child:Center(child: AutoSizeText(snapshot.data[index].total.toString(),
+                                        minFontSize: 16,
+                                        maxFontSize: 16,
+                                        textScaleFactor: 0.8,
+                                       maxLines:1,style: TextStyle(fontSize:16,color:Colors.cyan),))
+                                     ),
+                                     
+                                      Container(
+                                        
+                                       width:MediaQuery.of(context).size.width/5,
+                                       child:Center(child: AutoSizeText(snapshot.data[index].death.toString(),
+                                        minFontSize: 16,
+                                        maxFontSize: 16,
+                                        textScaleFactor: 0.8,
+                                       maxLines:1,style: TextStyle(fontSize:16,color: Color.fromARGB(255, 194, 46, 65),),))
+                                     ),
+                                 
+                                   ],
+                                 ),
+                                 )
                              ],
                            ),
                          );
