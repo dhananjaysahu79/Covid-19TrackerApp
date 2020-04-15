@@ -44,7 +44,7 @@ class _LandingPageState extends State<LandingPage> {
    var res = await http.get(Uri.encodeFull("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php"),
      headers: {
     "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-	  "x-rapidapi-key": "374bf8e1bbmsh07a727668901e27p1b0e0djsnb430e36160de"
+	 s
        }
     );
    decodedJson2 = jsonDecode(res.body);
@@ -62,7 +62,7 @@ class _LandingPageState extends State<LandingPage> {
     var res = await http.get(Uri.encodeFull("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php"),
      headers: {
        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-	     "x-rapidapi-key": "374bf8e1bbmsh07a727668901e27p1b0e0djsnb430e36160de"
+	     
        }
     );
     decodedJson = jsonDecode(res.body);

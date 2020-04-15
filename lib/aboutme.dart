@@ -140,7 +140,7 @@ class AboutMe extends StatelessWidget {
                           GestureDetector(
                             onTap: () async{
                               if (await canLaunch("https://www.linkedin.com/in/dhananjay-sahu-525b1b1a1/"))
-                                await  launch('https://www.linkedin.com/in/dhananjaysahu79/');
+                                await  launch('https://www.linkedin.com/in/dhananjay-sahu-525b1b1a1/');
                                 else
                                   throw "link not found";
                             },
