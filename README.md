@@ -1,16 +1,11 @@
 # newsapp
 
-A new Flutter project.
+A new Flutter project,that tracks coronavirus data/cases around the world
+It shows worldwide data from rapidapi
+https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php
+It shows countries data from
+https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+It shows India specific details from covid19india.org
+https://api.covid19india.org/data.json
+![](Screenshot/covid.png)
