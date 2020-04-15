@@ -12,4 +12,6 @@ https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php
 
 It shows India specific details from covid19india.org
 https://api.covid19india.org/data.json
+
+If you like it please give it a star :)
 ![](Screenshot/covid.png)
